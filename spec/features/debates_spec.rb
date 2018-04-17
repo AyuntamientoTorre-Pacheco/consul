@@ -337,7 +337,7 @@ feature 'Debates' do
       visit debates_path
       click_link 'highest rated'
 
-      expect(page).to have_selector('a.active', text: 'highest rated')
+      expect(page).to have_selector('a.is-active', text: 'highest rated')
 
       within '#debates' do
         expect(best_debate.title).to appear_before(medium_debate.title)
@@ -356,7 +356,7 @@ feature 'Debates' do
       visit debates_path
       click_link 'newest'
 
-      expect(page).to have_selector('a.active', text: 'newest')
+      expect(page).to have_selector('a.is-active', text: 'newest')
 
       within '#debates' do
         expect(best_debate.title).to appear_before(medium_debate.title)
@@ -419,7 +419,7 @@ feature 'Debates' do
 
         click_link 'recommendations'
 
-        expect(page).to have_selector('a.active', text: 'recommendations')
+        expect(page).to have_selector('a.is-active', text: 'recommendations')
 
         within '#debates' do
           expect(best_debate.title).to appear_before(medium_debate.title)
@@ -809,7 +809,7 @@ feature 'Debates' do
       fill_in "search", with: "Show you got"
       click_button "Search"
 
-      expect(page).to have_selector("a.active", text: "relevance")
+      expect(page).to have_selector("a.is-active", text: "relevance")
 
       within("#debates") do
         expect(all(".debate")[0].text).to match "Show you got"
@@ -828,7 +828,7 @@ feature 'Debates' do
       fill_in "search", with: "Show you got"
       click_button "Search"
       click_link 'newest'
-      expect(page).to have_selector("a.active", text: "newest")
+      expect(page).to have_selector("a.is-active", text: "newest")
 
       within("#debates") do
         expect(all(".debate")[0].text).to match "Show you got"
@@ -853,7 +853,7 @@ feature 'Debates' do
       fill_in "search", with: "Show you got"
       click_button "Search"
       click_link 'recommendations'
-      expect(page).to have_selector("a.active", text: "recommendations")
+      expect(page).to have_selector("a.is-active", text: "recommendations")
 
       within("#debates") do
         expect(all(".debate")[0].text).to match "Show you got"
